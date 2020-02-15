@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Algorithms
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = new int[] { 8 };
+            if (IsPalindrome(arr))
+                Console.WriteLine("Number is palindrome");
+            else
+                Console.WriteLine("number is not palindrome");
+
+            Console.ReadKey();
+
+        }
+        public static bool IsPalindrome(int[] numbers)
+        {
+            bool IsPalindrome = false;
+            int len = numbers.Length - 1;
+            if (numbers.Length == 1)
+            {
+                return true;
+            }
+            for (int i = 0; i < numbers.Length / 2; i++)
+            {
+                if (numbers[i] == numbers[len - i])
+                {
+                    IsPalindrome = true;
+                }
+                else
+                    return false;
+            }
+            return IsPalindrome;
+        }
+    }
+}
