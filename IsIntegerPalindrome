@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ProgrammingAlgorithms
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x = 0;
+            if (IsPalindrome(x))
+                Console.WriteLine("Number is palindrome");
+            else
+                Console.WriteLine("number is not palindrome");
+
+            Console.ReadKey();
+        }
+        public static bool IsPalindrome(int x)
+        {
+            bool IsPalindrome = false;
+            if (x < 0)
+                return false;
+            var numArray = ConvertIntToArrayList(x);            
+            int len = numArray.Count - 1;
+            if (len <= 0)
+                return true;
+            for (int i = 0; i < numArray.Count / 2; i++)
+            {
+                if (numArray[i] == numArray[len - i])
+                {
+                    IsPalindrome = true;
+                }
+                else
+                    return false;
+            }
+            return IsPalindrome;
+        }
+        public static List<int> ConvertIntToArrayList(int x)
+        {
+            var numArray = new List<int>();
+            while (x != 0)
+            {
+                int rem = x % 10;
+                numArray.Add(rem);
+                x = x / 10;
+            }
+            return numArray;
+        }
+    }
+
+}
